@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 int MainWindow:: Funcion(){
     return 10;
 }
+double MainWindow:: Funcion2(){
     return 20;
 }
 
