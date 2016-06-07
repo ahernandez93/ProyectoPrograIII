@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.0.0, 2016-06-07T01:40:51. -->
+=======
+<!-- Written by QtCreator 4.0.0, 2016-05-26T22:23:53. -->
+>>>>>>> parent of 6b94fa6... Agregue Clases Curso, Clase, y Laboratorio
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
