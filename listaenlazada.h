@@ -1,8 +1,9 @@
 #ifndef LISTAENLAZADA_H
 #define LISTAENLAZADA_H
+#include "curso.h"
 
 
-class ListaEnlazada
+class ListaEnlazada : public Curso
 {
 public:
     ListaEnlazada();
