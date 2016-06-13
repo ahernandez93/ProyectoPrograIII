@@ -23,6 +23,8 @@ Clase::~Clase()
 {
     cout<<"destructor clase"<<endl;
     delete [] catedratico;
+    //delete [] nombre;
+    //delete [] hora;
 }
 
 void Clase::setAula(int aula)

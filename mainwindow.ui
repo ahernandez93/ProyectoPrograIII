@@ -6,26 +6,108 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1118</width>
+    <height>672</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QTableWidget" name="TClases">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>100</y>
-      <width>75</width>
-      <height>23</height>
+      <x>10</x>
+      <y>10</y>
+      <width>871</width>
+      <height>271</height>
      </rect>
     </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
+    <row>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>Codigo</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nombre</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Matriculados</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Hora</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Aula</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Catedratico</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Dias</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Cupo</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>1</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>Programacion III</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>15</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>1: 30 PM</string>
+     </property>
+    </item>
+    <item row="0" column="4">
+     <property name="text">
+      <string>505</string>
+     </property>
+    </item>
+    <item row="0" column="5">
+     <property name="text">
+      <string>Allan Villatoro</string>
+     </property>
+    </item>
+    <item row="0" column="6">
+     <property name="text">
+      <string>6</string>
+     </property>
+    </item>
+    <item row="0" column="7">
+     <property name="text">
+      <string>10</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -33,10 +115,23 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>1118</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionAbrir_archivo_de_Clases"/>
+    <addaction name="actionGuardar_Archivo_de_Clases"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbri_Archivo_de_Laboratorios"/>
+    <addaction name="actionGuardar_Archivo_de_Laboratorio"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuMenu"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -47,6 +142,31 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAbrir_archivo_de_Clases">
+   <property name="text">
+    <string>Abrir Archivo de Clases</string>
+   </property>
+  </action>
+  <action name="actionAbri_Archivo_de_Laboratorios">
+   <property name="text">
+    <string>Abri Archivo de Laboratorio</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Archivo_de_Clases">
+   <property name="text">
+    <string>Guardar Archivo de Clases</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Archivo_de_Laboratorio">
+   <property name="text">
+    <string>Guardar Archivo de Laboratorio</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
