@@ -23,7 +23,7 @@ public:
         void setAnterior(Curso *);
         Curso * getAnterior();
 
-        virtual int getCupo() const = 0;
+        virtual int getCupo() const;
 
 private:
         int codigo;
