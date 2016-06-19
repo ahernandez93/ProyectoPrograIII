@@ -28,9 +28,9 @@ public:
 
 private:
         int codigo;
-        char * nombre;
+        char nombre[30];
         int matriculados;
-        char * hora;
+        char hora[10];
         Curso * siguiente;
         Curso * anterior;
 };
