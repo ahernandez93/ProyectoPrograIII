@@ -98,3 +98,10 @@ int Curso::getCupo() const
 {
     return 0;
 }
+
+void Curso::imprimir() const
+{
+    cout << "Codigo" << this->codigo << endl;
+    cout << "Nombre" << this->nombre << endl;
+    cout << "Matriculados" << this->matriculados << endl;
+}
