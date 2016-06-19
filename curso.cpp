@@ -10,8 +10,10 @@ Curso::Curso()
     this->nombre=new char[10];
     strcpy(this->nombre,"");
     this->matriculados = 0;
-    this->hora=new char[0];
+    this->hora=new char[1];
     strcpy(this->hora,"");
+    siguiente = 0;
+    anterior = 0;
 }
 Curso::Curso(int codigo,const char * nombre, int matriculados, const char * hora)
 {
@@ -19,6 +21,8 @@ Curso::Curso(int codigo,const char * nombre, int matriculados, const char * hora
     this->setNombre(nombre);
     this->setMatriculados(matriculados);
     this->setHora(hora);
+    siguiente = 0;
+    anterior = 0;
 }
 
 Curso::~Curso()
@@ -26,6 +30,7 @@ Curso::~Curso()
     cout<<"destructor curso"<<endl;
     delete[] this->nombre;
     delete[] this->hora;
+
 }
 
 void Curso::setCodigo(int codigo)
@@ -92,4 +97,11 @@ Curso * Curso::getAnterior()
 int Curso::getCupo() const
 {
     return 0;
+}
+
+void Curso::imprimir() const
+{
+    cout << "Codigo" << this->codigo << endl;
+    cout << "Nombre" << this->nombre << endl;
+    cout << "Matriculados" << this->matriculados << endl;
 }
