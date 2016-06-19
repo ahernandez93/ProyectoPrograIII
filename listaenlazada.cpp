@@ -2,7 +2,8 @@
 #include <fstream>
 #include <cstring>
 #include "ListaEnlazada.h"
-
+#include "clase.h"
+#include "laboratorio.h"
 using namespace std;
 
 ListaEnlazada::ListaEnlazada()
@@ -50,11 +51,11 @@ void ListaEnlazada::insertarAlFinal(Curso* nuevo)
 
 void ListaEnlazada::mostrarLista()
 {
-    /*Curso * temp = inicio;
+    Curso * temp = inicio;
     while(temp !=0){
         temp->imprimir();
         temp = temp->getSiguiente();
-    }*/
+    }
 }
 
 Curso* ListaEnlazada::buscarCurso(int codigo)
@@ -71,7 +72,7 @@ Curso* ListaEnlazada::buscarCurso(int codigo)
 
 void ListaEnlazada::guardarArchivoAleatorio()
 {
-    ofstream archivoSalida (nombreArchivo,ios::out|ios::binary);
+    ofstream archivoSalida ("2ez.txt",ios::out|ios::binary);
 
     Curso * temp = inicio;
     while(temp !=0){
@@ -82,7 +83,7 @@ void ListaEnlazada::guardarArchivoAleatorio()
 
 void ListaEnlazada::leerArchivoAleatorio()
 {
-    ifstream archivoEntrada (nombreArchivo,ios::in | ios::binary);
+    ifstream archivoEntrada ("2ez.txt",ios::in | ios::binary);
     if(!archivoEntrada)
     {
         cout<<"El archivo no existe."<<endl;
@@ -91,12 +92,12 @@ void ListaEnlazada::leerArchivoAleatorio()
 
     Curso * curso;
 
-    archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Curso));
+    archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
 
     while(archivoEntrada && !archivoEntrada.eof())
     {
         this->insertarAlFinal(curso);
-        archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Curso));
+        archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
     }
 
 }
