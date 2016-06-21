@@ -13,6 +13,7 @@ class ListaDoblementeEnlazada
         Curso * buscarCurso(int);
         void guardarArchivoAleatorio();
         void leerArchivoAleatorio();
+        void agregar(Curso *);
 
     protected:
 

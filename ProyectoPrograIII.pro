@@ -17,14 +17,12 @@ SOURCES += main.cpp\
     clase.cpp \
     curso.cpp \
     laboratorio.cpp \
-    listaenlazada.cpp \
     listadoblementeenlazada.cpp
 
 HEADERS  += mainwindow.h \
     clase.h \
     curso.h \
     laboratorio.h \
-    listaenlazada.h \
     listadoblementeenlazada.h
 
 FORMS    += mainwindow.ui

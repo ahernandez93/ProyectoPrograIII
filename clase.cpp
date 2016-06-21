@@ -7,7 +7,7 @@ using namespace std;
 Clase::Clase() : Curso()
 {
     this->aula = 0;
-    this->catedratico=new char[10];
+    //this->catedratico=new char[10];
     strcpy(this->catedratico,"");
     this->dias = 0;
 }
@@ -22,7 +22,7 @@ Clase::Clase(int codigo, const char * nombre, int matriculados, const char* hora
 Clase::~Clase()
 {
     cout<<"destructor clase"<<endl;
-    delete [] catedratico;
+    //delete [] catedratico;
 }
 
 void Clase::setAula(int aula)
@@ -32,8 +32,8 @@ void Clase::setAula(int aula)
 
 void Clase::setCatedratico(const char * catedratico)
 {
-    delete[]this->catedratico;
-    this->catedratico=new char[strlen(catedratico)+1];
+    //delete[]this->catedratico;
+    //this->catedratico=new char[strlen(catedratico)+1];
     strcpy(this->catedratico,catedratico);
 }
 
@@ -57,4 +57,13 @@ int Clase::getDias() const
 int Clase::getCupo() const
 {
     return 30;
+}
+
+void Clase::imprimir() const
+{
+    Curso::imprimir();
+    cout<<"Aula: "<<this->aula<<endl;
+    cout<<"Catedratico: "<<this->catedratico<<endl;
+    cout<<"Dias: "<<this->dias<<endl;
+    cout<<endl;
 }

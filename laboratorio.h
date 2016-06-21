@@ -7,12 +7,12 @@ class Laboratorio : public Curso
 {
 public:
     Laboratorio();
-    Laboratorio(int, const char *, int, const char*, int, const char *, int);
+    Laboratorio(int, const char *, int, const char*, int, const char *);
     ~Laboratorio();
 
     void setNumLaboratorio(int);
     void setInstructor(const char *);
-    void setDias(int);
+    void setDias();
 
     int getNumLaboratorio() const;
     const char * getInstructor() const;

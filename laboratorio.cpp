@@ -12,11 +12,11 @@ Laboratorio::Laboratorio() : Curso()
     this->dias = 0;
 }
 
-Laboratorio::Laboratorio(int codigo,const char * nombre, int matriculados,const char* hora, int numlaboratorio,const char * instructor, int dias) : Curso(codigo,nombre,matriculados,hora)
+Laboratorio::Laboratorio(int codigo,const char * nombre, int matriculados,const char* hora, int numlaboratorio,const char * instructor) : Curso(codigo,nombre,matriculados,hora)
 {
-    this->numlaboratorio = numlaboratorio;
+    this->setNumLaboratorio(numlaboratorio);
     this->setInstructor(instructor);
-    this->dias = dias;
+    this->setDias();
 }
 
 Laboratorio::~Laboratorio()
@@ -37,9 +37,9 @@ void Laboratorio::setInstructor(const char * instructor)
     strcpy(this->instructor,instructor);
 }
 
-void Laboratorio::setDias(int dias)
+void Laboratorio::setDias()
 {
-    this->dias = dias;
+    this->dias = 6;
 }
 
 int Laboratorio::getNumLaboratorio() const

@@ -76,6 +76,7 @@ const char* Curso::getHora() const
 
 void Curso::setSiguiente(Curso * nuevo)
 {
+    //delete siguiente;
     this->siguiente = nuevo;
 }
 
@@ -86,6 +87,7 @@ Curso * Curso::getSiguiente()
 
 void Curso::setAnterior(Curso * nuevo)
 {
+    //delete anterior;
     this->anterior = nuevo;
 }
 
@@ -101,7 +103,10 @@ int Curso::getCupo() const
 
 void Curso::imprimir() const
 {
+    cout<<endl;
     cout << "Codigo: " << this->codigo << endl;
     cout << "Nombre: " << this->nombre << endl;
     cout << "Matriculados: " << this->matriculados << endl;
+    cout << "Hora: "<< this->hora<<endl;
+
 }

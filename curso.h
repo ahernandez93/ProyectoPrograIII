@@ -22,7 +22,7 @@ public:
         Curso * getSiguiente();
         void setAnterior(Curso *);
         Curso * getAnterior();
-        void imprimir () const;
+        virtual void imprimir () const;
 
         virtual int getCupo() const;
 

@@ -26,6 +26,7 @@ ListaDoblementeEnlazada::~ListaDoblementeEnlazada()
     }
 
 }
+
 void ListaDoblementeEnlazada::insertarAlInicio(Curso* nuevo)
 {
     if(inicio == 0){
@@ -40,6 +41,20 @@ void ListaDoblementeEnlazada::insertarAlInicio(Curso* nuevo)
 }
 
 void ListaDoblementeEnlazada::insertarAlFinal(Curso* nuevo)
+{
+    if(inicio == 0){
+        inicio = nuevo;
+        fin = nuevo;
+   }
+   else{
+        delete fin;
+        fin->setSiguiente(nuevo);
+        nuevo->setAnterior(fin);
+        fin = nuevo;
+   }
+}
+
+void ListaDoblementeEnlazada::agregar(Curso* nuevo)
 {
     if(inicio == 0){
         inicio = nuevo;
@@ -100,10 +115,19 @@ void ListaDoblementeEnlazada::leerArchivoAleatorio()
 
     while(archivoEntrada && !archivoEntrada.eof())
     {
+        //curso->setSiguiente(NULL);
+        //curso->setAnterior(NULL);
+
+
         this->insertarAlFinal(curso);
+        //curso->imprimir();
+        //delete curso;
         archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
+
+
+
     }
-    archivoEntrada.close();
+    //archivoEntrada.close();
 
 }
 

@@ -16,12 +16,12 @@ public:
     int getAula() const;
     const char * getCatedratico() const;
     int getDias() const;
-
+    virtual void imprimir () const;
     virtual int getCupo() const;
 
 private:
     int aula;
-    char * catedratico;
+    char catedratico[30];
     int dias;
 };
 
