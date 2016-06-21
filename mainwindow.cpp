@@ -36,10 +36,11 @@ void MainWindow::on_pushButton_clicked()
         lista->leerArchivoAleatorio();
         lista->mostrarLista();
 
-       //lista->guardarArchivoAleatorio();
+        //lista->guardarArchivoAleatorio();
 
         //delete curso1;
         delete curso2;
         delete curso3;
+        delete lista;
 
 }

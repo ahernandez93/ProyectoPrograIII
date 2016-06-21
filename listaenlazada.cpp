@@ -72,25 +72,26 @@ Curso* ListaEnlazada::buscarCurso(int codigo)
 
 void ListaEnlazada::guardarArchivoAleatorio()
 {
-    ofstream archivoSalida ("2ez.txt",ios::out|ios::binary);
+    ofstream archivoSalida ("prueba.txt",ios::out|ios::binary);
 
-    Curso * temp = inicio;
+    Curso *temp = inicio;
     while(temp !=0){
         archivoSalida.write(reinterpret_cast <const char *> (temp),sizeof(Curso));
         temp = temp->getSiguiente();
     }
+    archivoSalida.close();
 }
 
 void ListaEnlazada::leerArchivoAleatorio()
 {
-    ifstream archivoEntrada ("2ez.txt",ios::in | ios::binary);
+    ifstream archivoEntrada ("prueba.txt",ios::in | ios::binary);
     if(!archivoEntrada)
     {
         cout<<"El archivo no existe."<<endl;
         return;
     }
 
-    Curso * curso;
+    Curso *curso;
 
     archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
 
@@ -99,5 +100,6 @@ void ListaEnlazada::leerArchivoAleatorio()
         this->insertarAlFinal(curso);
         archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
     }
+    archivoEntrada.close();
 
 }
