@@ -1,24 +1,19 @@
-<<<<<<< HEAD
-#include "listaenlazada.h"
-
-ListaEnlazada::ListaEnlazada()
-{
-=======
+#include "ListaDoblementeEnlazada.h"
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include "ListaEnlazada.h"
 #include "clase.h"
 #include "laboratorio.h"
 using namespace std;
-
-ListaEnlazada::ListaEnlazada()
+ListaDoblementeEnlazada::ListaDoblementeEnlazada()
 {
-    inicio = 0;
-    fin = 0;
+    //ctor
+    inicio=0;
+    fin=0;
+
 }
 
-ListaEnlazada::~ListaEnlazada()
+ListaDoblementeEnlazada::~ListaDoblementeEnlazada()
 {
     //dtor
     cout<<"Detructor de lista"<<endl;
@@ -31,7 +26,7 @@ ListaEnlazada::~ListaEnlazada()
     }
 
 }
-void ListaEnlazada::insertarAlInicio(Curso* nuevo)
+void ListaDoblementeEnlazada::insertarAlInicio(Curso* nuevo)
 {
     if(inicio == 0){
         inicio = nuevo;
@@ -39,23 +34,25 @@ void ListaEnlazada::insertarAlInicio(Curso* nuevo)
    }
    else{
         nuevo->setSiguiente(inicio);
+        inicio->setAnterior(nuevo);
         inicio = nuevo;
    }
 }
 
-void ListaEnlazada::insertarAlFinal(Curso* nuevo)
+void ListaDoblementeEnlazada::insertarAlFinal(Curso* nuevo)
 {
-   if(inicio == 0){
+    if(inicio == 0){
         inicio = nuevo;
         fin = nuevo;
    }
    else{
-    fin->setSiguiente(nuevo);
-    fin = nuevo;
+        fin->setSiguiente(nuevo);
+        nuevo->setAnterior(fin);
+        fin = nuevo;
    }
 }
 
-void ListaEnlazada::mostrarLista()
+void ListaDoblementeEnlazada::mostrarLista()
 {
     Curso * temp = inicio;
     while(temp !=0){
@@ -64,7 +61,7 @@ void ListaEnlazada::mostrarLista()
     }
 }
 
-Curso* ListaEnlazada::buscarCurso(int codigo)
+Curso* ListaDoblementeEnlazada::buscarCurso(int codigo)
 {
     Curso * temp = inicio;
     while(temp !=0){
@@ -76,7 +73,7 @@ Curso* ListaEnlazada::buscarCurso(int codigo)
     return 0;
 }
 
-void ListaEnlazada::guardarArchivoAleatorio()
+void ListaDoblementeEnlazada::guardarArchivoAleatorio()
 {
     ofstream archivoSalida ("prueba.txt",ios::out|ios::binary);
 
@@ -88,7 +85,7 @@ void ListaEnlazada::guardarArchivoAleatorio()
     archivoSalida.close();
 }
 
-void ListaEnlazada::leerArchivoAleatorio()
+void ListaDoblementeEnlazada::leerArchivoAleatorio()
 {
     ifstream archivoEntrada ("prueba.txt",ios::in | ios::binary);
     if(!archivoEntrada)
@@ -107,6 +104,7 @@ void ListaEnlazada::leerArchivoAleatorio()
         archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
     }
     archivoEntrada.close();
->>>>>>> refs/remotes/origin/master
 
 }
+
+

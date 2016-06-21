@@ -13,10 +13,18 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+<<<<<<< HEAD
     int Funcion();
     double Funcion2();
     ~MainWindow();
 
+=======
+    ~MainWindow();
+
+private slots:
+    void on_pushButton_clicked();
+
+>>>>>>> refs/remotes/origin/master
 private:
     Ui::MainWindow *ui;
 };
