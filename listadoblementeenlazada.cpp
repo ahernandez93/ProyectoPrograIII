@@ -112,17 +112,25 @@ void ListaDoblementeEnlazada::leerArchivoAleatorio()
 
     Curso * curso;
 
-    archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
+    archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Curso));
 
     while(archivoEntrada && !archivoEntrada.eof())
     {
-        curso->imprimir();
+        //curso->imprimir();
         //Clase curso2=(Clase)curso;
-        //curso2.imprimir();
+        curso->imprimir();
+        //int codigo=curso->getCodigo();
+
+
+
+
         Curso * cursoptr=new Clase(curso->getCodigo(),curso->getNombre(),curso->getMatriculados(),curso->getHora(),((Clase *)curso)->getAula(),((Clase*)curso)->getCatedratico(),((Clase*)curso)->getDias());
+        //cursoptr->imprimir();
         //this->insertarAlFinal(cursoptr);
-        //delete curso;
-        archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
+        //delete cursoptr;
+
+        archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Curso));
+
     }
     archivoEntrada.close();
 
