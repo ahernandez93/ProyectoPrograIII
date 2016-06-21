@@ -4,6 +4,7 @@
 #include <cstring>
 #include "clase.h"
 #include "laboratorio.h"
+#include "curso.h"
 using namespace std;
 ListaDoblementeEnlazada::ListaDoblementeEnlazada()
 {
@@ -47,7 +48,7 @@ void ListaDoblementeEnlazada::insertarAlFinal(Curso* nuevo)
         fin = nuevo;
    }
    else{
-        delete fin;
+        //delete fin;
         fin->setSiguiente(nuevo);
         nuevo->setAnterior(fin);
         fin = nuevo;
@@ -109,25 +110,21 @@ void ListaDoblementeEnlazada::leerArchivoAleatorio()
         return;
     }
 
-    Curso *curso;
+    Curso * curso;
 
     archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
 
     while(archivoEntrada && !archivoEntrada.eof())
     {
-        //curso->setSiguiente(NULL);
-        //curso->setAnterior(NULL);
-
-
-        this->insertarAlFinal(curso);
-        //curso->imprimir();
+        curso->imprimir();
+        //Clase curso2=(Clase)curso;
+        //curso2.imprimir();
+        Curso * cursoptr=new Clase(curso->getCodigo(),curso->getNombre(),curso->getMatriculados(),curso->getHora(),((Clase *)curso)->getAula(),((Clase*)curso)->getCatedratico(),((Clase*)curso)->getDias());
+        //this->insertarAlFinal(cursoptr);
         //delete curso;
         archivoEntrada.read(reinterpret_cast<char *> (curso), sizeof(Curso));
-
-
-
     }
-    //archivoEntrada.close();
+    archivoEntrada.close();
 
 }
 

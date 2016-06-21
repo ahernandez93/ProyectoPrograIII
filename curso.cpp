@@ -76,7 +76,7 @@ const char* Curso::getHora() const
 
 void Curso::setSiguiente(Curso * nuevo)
 {
-    //delete siguiente;
+    delete siguiente;
     this->siguiente = nuevo;
 }
 
