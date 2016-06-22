@@ -1,13 +1,12 @@
-#ifndef LISTAENLAZADA_H
-#define LISTAENLAZADA_H
-#include "curso.h"
+#ifndef LISTADOBLEMENTEENLAZADA_H
+#define LISTADOBLEMENTEENLAZADA_H
+#include "Curso.h"
 
-
-class ListaEnlazada
+class ListaDoblementeEnlazada
 {
     public:
-        ListaEnlazada();
-        virtual ~ListaEnlazada();
+        ListaDoblementeEnlazada();
+        virtual ~ListaDoblementeEnlazada();
         void insertarAlInicio(Curso *);
         void insertarAlFinal(Curso *);
         void mostrarLista();
@@ -15,14 +14,12 @@ class ListaEnlazada
         void guardarArchivoAleatorio();
         void leerArchivoAleatorio();
 
-        //Curso leerArchivoAleatorio(int);
-
     protected:
+
+    private:
         Curso * inicio;
         Curso * fin;
         char nombreArchivo[30];
-    private:
-
 };
 
-#endif // LISTAENLAZADA_H
+#endif // LISTADOBLEMENTEENLAZADA_H

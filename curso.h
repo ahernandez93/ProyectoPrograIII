@@ -22,14 +22,15 @@ public:
         Curso * getSiguiente();
         void setAnterior(Curso *);
         Curso * getAnterior();
+        void imprimir () const;
 
-        virtual int getCupo() const = 0;
+        virtual int getCupo() const;
 
 private:
         int codigo;
-        char * nombre;
+        char nombre[30];
         int matriculados;
-        char * hora;
+        char hora[10];
         Curso * siguiente;
         Curso * anterior;
 };

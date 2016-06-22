@@ -7,11 +7,13 @@ using namespace std;
 Curso::Curso()
 {
     this->codigo = 0;
-    this->nombre=new char[10];
+    //this->nombre=new char[10];
     strcpy(this->nombre,"");
     this->matriculados = 0;
-    this->hora=new char[0];
+    //this->hora=new char[1];
     strcpy(this->hora,"");
+    siguiente = 0;
+    anterior = 0;
 }
 Curso::Curso(int codigo,const char * nombre, int matriculados, const char * hora)
 {
@@ -19,13 +21,16 @@ Curso::Curso(int codigo,const char * nombre, int matriculados, const char * hora
     this->setNombre(nombre);
     this->setMatriculados(matriculados);
     this->setHora(hora);
+    siguiente = 0;
+    anterior = 0;
 }
 
 Curso::~Curso()
 {
     cout<<"destructor curso"<<endl;
-    delete[] this->nombre;
-    delete[] this->hora;
+    //delete[] this->nombre;
+    //delete[] this->hora;
+
 }
 
 void Curso::setCodigo(int codigo)
@@ -35,8 +40,8 @@ void Curso::setCodigo(int codigo)
 
 void Curso::setNombre(const char * nombre)
 {
-    delete [] this->nombre;
-    this->nombre = new char [strlen(nombre)+1];
+    //delete [] this->nombre;
+    //this->nombre = new char [strlen(nombre)+1];
     strcpy(this->nombre,nombre);
 }
 
@@ -47,8 +52,8 @@ void Curso::setMatriculados(int matriculados)
 
 void Curso::setHora(const char * hora)
 {
-    delete [] this->hora;
-    this->hora= new char[strlen(hora)+1];
+    //delete [] this->hora;
+    //this->hora= new char[strlen(hora)+1];
     strcpy(this->hora,hora);
 }
 
@@ -92,4 +97,11 @@ Curso * Curso::getAnterior()
 int Curso::getCupo() const
 {
     return 0;
+}
+
+void Curso::imprimir() const
+{
+    cout << "Codigo: " << this->codigo << endl;
+    cout << "Nombre: " << this->nombre << endl;
+    cout << "Matriculados: " << this->matriculados << endl;
 }
