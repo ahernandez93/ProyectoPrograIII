@@ -28,7 +28,7 @@ ListaDoblementeEnlazada::~ListaDoblementeEnlazada()
 
 }
 
-void ListaDoblementeEnlazada::insertarAlInicio(Curso* nuevo)
+void ListaDoblementeEnlazada::insertarAlInicio(Curso * nuevo)
 {
     if(inicio == 0){
         inicio = nuevo;
@@ -41,8 +41,9 @@ void ListaDoblementeEnlazada::insertarAlInicio(Curso* nuevo)
    }
 }
 
-void ListaDoblementeEnlazada::insertarAlFinal(Curso* nuevo)
+void ListaDoblementeEnlazada::insertarAlFinal(int codigo, const char * nombre, int matriculados, const char* hora, int aula, const char * catedratico, int dias)
 {
+    Curso * nuevo= new Clase(codigo,nombre,matriculados,hora,aula,catedratico,dias);
     if(inicio == 0){
         inicio = nuevo;
         fin = nuevo;
@@ -92,12 +93,15 @@ Curso* ListaDoblementeEnlazada::buscarCurso(int codigo)
 void ListaDoblementeEnlazada::guardarArchivoAleatorio()
 {
     ofstream archivoSalida ("prueba.txt",ios::out|ios::binary);
-
-    Curso *temp = inicio;
-    while(temp !=0){
-        archivoSalida.write(reinterpret_cast <const char *> (temp),sizeof(Curso));
-        temp = temp->getSiguiente();
-    }
+    Curso *temp1=inicio;
+    //Clase *temp2 = new Clase(temp1->getCodigo(),temp1->getNombre(),temp1->getMatriculados(),temp1->getHora(),((Clase*)temp1)->getAula(),((Clase*)temp1)->getCatedratico(),((Clase*)temp1)->getDias());
+    while(temp1 !=0){
+        Clase *temp2 = new Clase(temp1->getCodigo(),temp1->getNombre(),temp1->getMatriculados(),temp1->getHora(),((Clase*)temp1)->getAula(),((Clase*)temp1)->getCatedratico(),((Clase*)temp1)->getDias());
+        archivoSalida.write(reinterpret_cast <const char *> (temp2),sizeof(Clase));
+        temp1=temp1->getSiguiente();
+        delete temp2;
+        //temp2 = new Clase(temp1->getCodigo(),temp1->getNombre(),temp1->getMatriculados(),temp1->getHora(),((Clase*)temp1)->getAula(),((Clase*)temp1)->getCatedratico(),((Clase*)temp1)->getDias());
+     }
     archivoSalida.close();
 }
 
@@ -110,26 +114,15 @@ void ListaDoblementeEnlazada::leerArchivoAleatorio()
         return;
     }
 
-    Curso * curso;
+    Clase curso;
 
-    archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Curso));
+    archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Clase));
 
     while(archivoEntrada && !archivoEntrada.eof())
     {
         //curso->imprimir();
-        //Clase curso2=(Clase)curso;
-        curso->imprimir();
-        //int codigo=curso->getCodigo();
-
-
-
-
-        Curso * cursoptr=new Clase(curso->getCodigo(),curso->getNombre(),curso->getMatriculados(),curso->getHora(),((Clase *)curso)->getAula(),((Clase*)curso)->getCatedratico(),((Clase*)curso)->getDias());
-        //cursoptr->imprimir();
-        //this->insertarAlFinal(cursoptr);
-        //delete cursoptr;
-
-        archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Curso));
+        this->insertarAlFinal(curso.getCodigo(),curso.getNombre(),curso.getMatriculados(),curso.getHora(),curso.getAula(),curso.getCatedratico(),curso.getDias());
+        archivoEntrada.read(reinterpret_cast<char *> (&curso), sizeof(Clase));
 
     }
     archivoEntrada.close();

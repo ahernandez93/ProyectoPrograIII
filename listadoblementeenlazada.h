@@ -8,7 +8,7 @@ class ListaDoblementeEnlazada
         ListaDoblementeEnlazada();
         virtual ~ListaDoblementeEnlazada();
         void insertarAlInicio(Curso *);
-        void insertarAlFinal(Curso *);
+        void insertarAlFinal(int, const char *, int, const char*, int, const char *, int);
         void mostrarLista();
         Curso * buscarCurso(int);
         void guardarArchivoAleatorio();
