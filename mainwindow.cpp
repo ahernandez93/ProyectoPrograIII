@@ -21,11 +21,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    Curso * curso1 = new Clase(1,"Programacion III",15,"1pm",501,"Amed Castro",12345);
+    //Curso * curso1 = new Clase(1,"Programacion III",15,"1pm",501,"Amed Castro",12345);
 
-    Curso * curso2 = new Clase(2,"Programacion IV",13,"2pm",50,"Allan Villatoro",1234);
+    //Curso * curso2 = new Clase(2,"Programacion IV",13,"2pm",50,"Allan Villatoro",1234);
 
-    Curso * curso3 = new Clase(3,"Programacion V",10,"2pm",10,"Allan Hernandez",6);
+    //Curso * curso3 = new Clase(3,"Programacion V",10,"2pm",10,"Allan Hernandez",6);
 
         ListaDoblementeEnlazada * lista = new ListaDoblementeEnlazada();
         //lista->insertarAlFinal(curso1);
@@ -37,9 +37,9 @@ void MainWindow::on_pushButton_clicked()
 
         //lista->guardarArchivoAleatorio();
 
-        delete curso1;
-        delete curso2;
-        delete curso3;
+        // delete curso1;
+        // delete curso2;
+        // delete curso3;
         delete lista;
 
 }
